@@ -94,9 +94,9 @@ non-numeric independent variables to simply the model as well as the
 machine learning algorithm. Finally, any row containing a missing value
 was omitted from the dataset.
 
+*Figure 1*: R code for omitting missing values
 ![figure1](https://user-images.githubusercontent.com/61329825/192899809-70d2be7d-343e-463d-987e-8ed377e85934.png)
 
-*Figure 1*: R code for omitting missing values
 
 > *Correlation*
 
@@ -112,13 +112,13 @@ correlated with temperature at 3pm; their correlation coefficient was
 them from the dataset because I thought that they would be important for
 the model.
 
+*Figure 2*: R code that creates correlation coefficient matrix
 ![figure2](https://user-images.githubusercontent.com/61329825/192899920-01bf2056-637d-45c8-9310-abfd7a54be09.png)
 
-*Figure 2*: R code that creates correlation coefficient matrix
-
-![figure3](https://user-images.githubusercontent.com/61329825/192899957-07e1d86f-73b3-4e62-b3a4-af13970de37a.png)
 
 *Figure 3*: Correlation coefficient matrix
+![figure3](https://user-images.githubusercontent.com/61329825/192899957-07e1d86f-73b3-4e62-b3a4-af13970de37a.png)
+
 
 > *Winsorization*
 
@@ -136,17 +136,17 @@ R, was repeated for every independent variable in the dataset containing
 outliers. For a graphical representation of winsorization, see *Figure
 5*.
 
+*Figure 4*: R code of winsorization for a single independent variable
 ![figure4](https://user-images.githubusercontent.com/61329825/192900006-511d1cac-9543-4490-bd0a-3ef94b3fd04c.png)
 
-*Figure 4*: R code of winsorization for a single independent variable
 
+*Figure 5*: Graphical representation of winsorization
 Before
 ![figure5a](https://user-images.githubusercontent.com/61329825/192900042-7d5ec496-ad16-4cfe-8dfd-5973f031bb6b.png)
 
 After
 ![figure5b](https://user-images.githubusercontent.com/61329825/192900134-b4c85f61-24cf-40b5-8a9c-0a65634ecdb2.png)
 
-*Figure 5*: Graphical representation of winsorization
 
 > *Normalization*
 
@@ -159,13 +159,13 @@ calculating weights, both pressure variables dominated the model. The
 linear normalization formula was used to normalize each variable and
 solve this issue.
 
+*Figure 6*: Linear normalization formula
 $$linear\ normalization = \ \frac{x - min(x)}{\max(x) - min(x)}$$
 
-*Figure 6*: Linear normalization formula
-
-![figure7](https://user-images.githubusercontent.com/61329825/192900156-de07625b-525c-4491-8187-dd318f7a8c38.png)
 
 *Figure 7*: R code of normalization
+![figure7](https://user-images.githubusercontent.com/61329825/192900156-de07625b-525c-4491-8187-dd318f7a8c38.png)
+
 
 > *Creating Training and Testing Datasets*
 
@@ -179,10 +179,10 @@ which will become the testing dataset. Then, I exported both files with
 the comma-seperated values format so both datasets could then be read
 within a Java program.
 
-![figure8](https://user-images.githubusercontent.com/61329825/192900204-34d460d2-cb38-43b8-8418-75676924aaf0.png)
-
 *Figure 8*: Randomizing data and exporting as training and testing
 dataset
+![figure8](https://user-images.githubusercontent.com/61329825/192900204-34d460d2-cb38-43b8-8418-75676924aaf0.png)
+
 
 **Map-Reduce:**
 
@@ -249,17 +249,17 @@ value\> pair of \<(Text) theta, (doubleWritable) weight calculation\>.
 of the new weight equation above as well as the use of the sigmoid
 function.
 
+*Figure 9*: Calculation of weights in Mapper class
 ![figure9](https://user-images.githubusercontent.com/61329825/192900282-be4b8e39-b330-42e5-bc8b-78ef02ae4434.png)
 
-*Figure 9*: Calculation of weights in Mapper class
 
 After all of the mapper jobs are fully completed, the clean-up function
 is then called which sends the intermediate \<key, value\> pairs to the
 reducer class to handle.
 
+*Figure 10*: Clean-up function
 ![figure10](https://user-images.githubusercontent.com/61329825/192900319-1895fd17-6696-4832-86a4-49a8af09ba59.png)
 
-*Figure 10*: Clean-up function
 
 > Reducer Class
 The goal of the reducer class is to output the proper weight value of
@@ -268,9 +268,9 @@ this was done simply through summing all of the mapper jobs' values and
 using the context.write(key, value) function to write it to an output
 file.
 
+*Figure 11*: Reduce function
 ![figure11](https://user-images.githubusercontent.com/61329825/192900367-16ac2577-db3c-4c40-b7de-1052bb6ea1cd.png)
 
-*Figure 11*: Reduce function
 
 > Output of Map-Reduce Job
 As mentioned before, the Map-Reduce job's goal was to train the model.
@@ -300,14 +300,15 @@ tomorrow and an array of the data within that same row).
 The following figures are snippets of code that show important functions
 used for testing the model.
 
-![figure13](https://user-images.githubusercontent.com/61329825/192900461-9f9b15ed-9b8f-4ba9-8acf-139be3b4add7.png)
-
 *Figure 13*: TestingHadoop.java code that shows use of sigmoid function
 for classification
+![figure13](https://user-images.githubusercontent.com/61329825/192900461-9f9b15ed-9b8f-4ba9-8acf-139be3b4add7.png)
 
-![figure14](https://user-images.githubusercontent.com/61329825/192900503-27dcd211-15b7-4dd4-9379-739fbc20624a.png)
+
 
 *Figure 14*: Instance.java
+![figure14](https://user-images.githubusercontent.com/61329825/192900503-27dcd211-15b7-4dd4-9379-739fbc20624a.png)
+
 
 By testing the model in the way shown in *Figure 15* below*,* the
 program can determine the number of predictions that were:
@@ -327,9 +328,9 @@ program can determine the number of predictions that were:
 These metrics are important for testing the effectiveness of the model
 which will be shown in the next section.
 
+Figure 15: Code of classifying and predicting each test instance
 ![figure15](https://user-images.githubusercontent.com/61329825/192900561-d47c8aed-5f1d-4927-99dc-4ce55235c026.png)
 
-Figure 15: Code of classifying and predicting each test instance
 
 **7. Experiment Results and Discussion**
 
