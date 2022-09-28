@@ -94,8 +94,8 @@ non-numeric independent variables to simply the model as well as the
 machine learning algorithm. Finally, any row containing a missing value
 was omitted from the dataset.
 
-*Figure 1*: R code for omitting missing values
-![figure1](https://user-images.githubusercontent.com/61329825/192899809-70d2be7d-343e-463d-987e-8ed377e85934.png)
+*Figure 1*: R code for omitting missing values  
+![figure1](https://user-images.githubusercontent.com/61329825/192899809-70d2be7d-343e-463d-987e-8ed377e85934.png)  
 
 
 > *Correlation*
@@ -113,10 +113,14 @@ them from the dataset because I thought that they would be important for
 the model.
 
 *Figure 2*: R code that creates correlation coefficient matrix
+
+
 ![figure2](https://user-images.githubusercontent.com/61329825/192899920-01bf2056-637d-45c8-9310-abfd7a54be09.png)
 
 
 *Figure 3*: Correlation coefficient matrix
+
+
 ![figure3](https://user-images.githubusercontent.com/61329825/192899957-07e1d86f-73b3-4e62-b3a4-af13970de37a.png)
 
 
