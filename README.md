@@ -1,5 +1,17 @@
 # predicting-rainfall
-Project to predict if it will rain tomorrow in Australia given numerous weather and time conditions.
+Project to predict if it will rain tomorrow in Australia given numerous weather conditions:
+1. Minimum temperature
+2. Maximum temperature
+3. Rainfull for that day
+4. Wind gust speed
+5. Wind speed at 9am
+6. Wind speed at 3pm
+7. Humidity at 9am
+8. Humidity at 3pm
+9. Pressure at 9am
+10. Pressure at 3pm
+11. Temperature at 9am
+12. Temperature at 3pm
 
 **Mentoring**
 
