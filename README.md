@@ -76,8 +76,7 @@ project, I can emulate a meteorologist by being able to accurately
 My approach was to divide the project into three main steps/tasks that
 must be completed: (1) Data Pre-processing, (2) Map-Reduce, and (3)
 Testing Model.
-&nbsp;
-&nbsp;
+
 **Data Pre-Processing**
 
 This step was the most time consuming and important step to get right.
@@ -86,7 +85,7 @@ can be usable and effective in modelling a model after it. With unclean
 data, your machine learning algorithm will never be able to produce an
 effective model.
 
-[Omitting Missing Values]{.underline}
+> *Omitting Missing Values*
 
 In order to clean the dataset, I first checked the number of missing
 values in each independent variable and omitted every independent
@@ -100,7 +99,7 @@ height="1.1708508311461068in"}
 
 *Figure 1*: R code for omitting missing values
 
-[Correlation]{.underline}
+> *Correlation*
 
 The next step was to check for highly correlated variables and remove
 them from the dataset. For determining correlation, I used the Pearson
@@ -124,7 +123,7 @@ height="1.072331583552056in"}
 
 *Figure 3*: Correlation coefficient matrix
 
-[Winsorization]{.underline}
+> *Winsorization*
 
 The next step was to figure out an effective way to deal with outliers.
 Because nearly a third of my data was outliers, simply omitting them did
@@ -153,7 +152,7 @@ height="1.3970439632545932in"}
 
 *Figure 5*: Graphical representation of winsorization
 
-[Normalization]{.underline}
+> *Normalization*
 
 The goal of normalization or normalizing the data is to change all of
 numeric columns in the data set to a common scale. Before I normalized
@@ -173,7 +172,7 @@ height="0.9293821084864392in"}
 
 *Figure 7*: R code of normalization
 
-[Creating Training and Testing Datasets]{.underline}
+> *Creating Training and Testing Datasets*
 
 The final step of data pre-processing is to create usable training and
 testing datasets for the machine learning algorithm to use. To create
@@ -191,13 +190,12 @@ height="2.0439041994750657in"}
 *Figure 8*: Randomizing data and exporting as training and testing
 dataset
 
-**[Map-Reduce:]{.underline}**
+**Map-Reduce:**
 
 Before I describe my approach and implementation of map-reduce within my
 model, I first need to describe logistic regression.
 
-[Logistic Regression]{.underline}
-
+> Logistic Regression
 Logistic regression\[5\] is a machine learning algorithm that is perfect
 for classifying a binary outcome. This is due to the sigmoid function,
 which is the key behind the logistic regression algorithm. Essentially,
@@ -232,16 +230,14 @@ The inverse of logit is equal to the sigmoid function, as shown below.
 
 $${logit}^{- 1}(y) = \frac{e^{y}}{1 + e^{y}} = \frac{1}{1 + e^{- y}}$$
 
-[Map-Reduce Goal]{.underline}
-
+> Map-Reduce Goal
 The goal of map-reduce job is to train the model by using the training
 dataset to calculate the weights for the model. After the map-reduce job
 finishes, there will be a text file that contains the model's weights.
 This text file will be used, along with the testing dataset, to test the
 model and its performance.
 
-[Mapper Class \[6\]]{.underline}
-
+> Mapper Class
 The mapper class parses through the training dataset file, which is
 determined in the configuration of the driver class. This is a super
 important step because the data needs to extracted properly so that the
@@ -273,8 +269,7 @@ height="1.4291666666666667in"}
 
 *Figure 10*: Clean-up function
 
-[Reducer Class]{.underline}
-
+> Reducer Class
 The goal of the reducer class is to output the proper weight value of
 each independent variable and write it to an output file. In my case,
 this was done simply through summing all of the mapper jobs' values and
@@ -285,8 +280,7 @@ file.
 
 *Figure 11*: Reduce function
 
-[Output of Map-Reduce Job]{.underline}
-
+> Output of Map-Reduce Job
 As mentioned before, the Map-Reduce job's goal was to train the model.
 The output file contains the trained weights for the model which can be
 used for testing in the future.
@@ -302,7 +296,7 @@ value with the smallest weight is theta9 which corresponds to the
 independent variable "pressure at 3pm". This makes sense because usually
 high air pressure means fairer weather.
 
-**[Testing Model:]{.underline}**
+**Testing Model:**
 
 To test the model, I created two separate Java classes. The first Java
 class, called "TestingHadoop.java", parses both the testing dataset and
@@ -361,7 +355,7 @@ True Positive = 4,373 True Negative = 35,641
 
 False Positive = 6,066 False Negative = 1,756
 
-[Recall]{.underline}
+> Recall
 
 Recall measures the model's ability to find all of the relevant cases
 within a dataset In layman's terms, "when it's actually yes, how often
@@ -369,7 +363,7 @@ does the model predict yes?"
 
 $$Recall = \frac{true\ positives}{true\ positives + false\ negatives} = \frac{4373}{4373 + 1756} = 71.35\%$$
 
-[Precision]{.underline}
+> Precision
 
 Precision measures the model's ability to return only relevant instances
 within a dataset. In layman's terms, "when it predicts yes, how often is
@@ -377,7 +371,7 @@ it correct?"
 
 $$Precision = \frac{true\ positive}{true\ positive\  + \ false\ positive} = \frac{4373}{4373 + 6066} = 41.89\%$$
 
-[Accuracy]{.underline}
+> Accuracy
 
 Accuracy measures the how often the prediction is correct.
 
@@ -393,19 +387,19 @@ negatives and small number of false negatives.
 
 **4. Conclusion**
 
-[Possible Improvements]{.underline}
+Possible Improvements
 
 No model is perfect and my model is no exception. Here are a list of
 possible changes and improvements that can increase the effectiveness of
 the model.
 
-1.  **Utilize dates to take into account seasons**. Currently my model
+> 1.  **Utilize dates to take into account seasons**. Currently my model
     does not take into account seasons. This is a big flaw because all
     of the seasons are different and have many different
     characteristics. If season was taken into account, then I believe
     the model would perform much better.
 
-2.  **Figure out a way to include the non-numeric variables such as wind
+> 2.  **Figure out a way to include the non-numeric variables such as wind
     direction and location.** These variables were removed to simplify
     the model. These variables could be valuable within the model. For
     example, maybe a front that causes a storm always comes from the
@@ -414,13 +408,13 @@ the model.
     to the shores of Australia experience rain at a more frequent rate
     compared to the inland locations.
 
-3.  **There needs to be a greater balance in the number of rainTomorrow
+> 3.  **There needs to be a greater balance in the number of rainTomorrow
     = "Yes" and rainTomorrow = "No" within the training dataset to
     properly expose the model to more instances of rainy conditions.** I
     fear that this happened in my model. It was not exposed to enough
     rainy days to learn what conditions caused rain.
 
-[Conclusion]{.underline}
+**Conclusion**
 
 This was a very fun project to work on. I learned so much in so many new
 areas, such as R, Apache Hadoop, data cleaning, and machine learning
