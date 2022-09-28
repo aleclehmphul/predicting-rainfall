@@ -76,9 +76,8 @@ project, I can emulate a meteorologist by being able to accurately
 My approach was to divide the project into three main steps/tasks that
 must be completed: (1) Data Pre-processing, (2) Map-Reduce, and (3)
 Testing Model.
-
-
-
+&nbsp;
+&nbsp;
 **Data Pre-Processing**
 
 This step was the most time consuming and important step to get right.
