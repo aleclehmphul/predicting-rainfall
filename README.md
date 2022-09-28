@@ -94,8 +94,7 @@ non-numeric independent variables to simply the model as well as the
 machine learning algorithm. Finally, any row containing a missing value
 was omitted from the dataset.
 
-![](media/image1.png){width="2.9090912073490816in"
-height="1.1708508311461068in"}
+![figure1](https://user-images.githubusercontent.com/61329825/192899809-70d2be7d-343e-463d-987e-8ed377e85934.png)
 
 *Figure 1*: R code for omitting missing values
 
@@ -113,13 +112,11 @@ correlated with temperature at 3pm; their correlation coefficient was
 them from the dataset because I thought that they would be important for
 the model.
 
-![](media/image2.png){width="3.9598720472440947in"
-height="0.5144116360454943in"}
+![figure2](https://user-images.githubusercontent.com/61329825/192899920-01bf2056-637d-45c8-9310-abfd7a54be09.png)
 
 *Figure 2*: R code that creates correlation coefficient matrix
 
-![](media/image3.png){width="6.071428258967629in"
-height="1.072331583552056in"}
+![figure3](https://user-images.githubusercontent.com/61329825/192899957-07e1d86f-73b3-4e62-b3a4-af13970de37a.png)
 
 *Figure 3*: Correlation coefficient matrix
 
@@ -139,16 +136,15 @@ R, was repeated for every independent variable in the dataset containing
 outliers. For a graphical representation of winsorization, see *Figure
 5*.
 
-![](media/image4.PNG){width="3.9675328083989503in"
-height="0.8387893700787401in"}
+![figure4](https://user-images.githubusercontent.com/61329825/192900006-511d1cac-9543-4490-bd0a-3ef94b3fd04c.png)
 
 *Figure 4*: R code of winsorization for a single independent variable
 
-Before After
+Before
+![figure5a](https://user-images.githubusercontent.com/61329825/192900042-7d5ec496-ad16-4cfe-8dfd-5973f031bb6b.png)
 
-![](media/image5.PNG){width="2.7771850393700785in"
-height="1.4160083114610673in"}![](media/image6.PNG){width="2.8116885389326334in"
-height="1.3970439632545932in"}
+After
+![figure5b](https://user-images.githubusercontent.com/61329825/192900134-b4c85f61-24cf-40b5-8a9c-0a65634ecdb2.png)
 
 *Figure 5*: Graphical representation of winsorization
 
@@ -167,8 +163,7 @@ $$linear\ normalization = \ \frac{x - min(x)}{\max(x) - min(x)}$$
 
 *Figure 6*: Linear normalization formula
 
-![](media/image7.PNG){width="3.9935061242344707in"
-height="0.9293821084864392in"}
+![figure7](https://user-images.githubusercontent.com/61329825/192900156-de07625b-525c-4491-8187-dd318f7a8c38.png)
 
 *Figure 7*: R code of normalization
 
@@ -184,8 +179,7 @@ which will become the testing dataset. Then, I exported both files with
 the comma-seperated values format so both datasets could then be read
 within a Java program.
 
-![](media/image8.png){width="4.177329396325459in"
-height="2.0439041994750657in"}
+![figure8](https://user-images.githubusercontent.com/61329825/192900204-34d460d2-cb38-43b8-8418-75676924aaf0.png)
 
 *Figure 8*: Randomizing data and exporting as training and testing
 dataset
@@ -255,8 +249,7 @@ value\> pair of \<(Text) theta, (doubleWritable) weight calculation\>.
 of the new weight equation above as well as the use of the sigmoid
 function.
 
-![](media/image9.png){width="5.090908792650919in"
-height="2.548519247594051in"}
+![figure9](https://user-images.githubusercontent.com/61329825/192900282-be4b8e39-b330-42e5-bc8b-78ef02ae4434.png)
 
 *Figure 9*: Calculation of weights in Mapper class
 
@@ -264,8 +257,7 @@ After all of the mapper jobs are fully completed, the clean-up function
 is then called which sends the intermediate \<key, value\> pairs to the
 reducer class to handle.
 
-![](media/image10.png){width="5.768055555555556in"
-height="1.4291666666666667in"}
+![figure10](https://user-images.githubusercontent.com/61329825/192900319-1895fd17-6696-4832-86a4-49a8af09ba59.png)
 
 *Figure 10*: Clean-up function
 
@@ -276,7 +268,7 @@ this was done simply through summing all of the mapper jobs' values and
 using the context.write(key, value) function to write it to an output
 file.
 
-![](media/image11.png){width="5.5in" height="1.428966535433071in"}
+![figure11](https://user-images.githubusercontent.com/61329825/192900367-16ac2577-db3c-4c40-b7de-1052bb6ea1cd.png)
 
 *Figure 11*: Reduce function
 
@@ -285,8 +277,7 @@ As mentioned before, the Map-Reduce job's goal was to train the model.
 The output file contains the trained weights for the model which can be
 used for testing in the future.
 
-![](media/image12.png){width="2.662338145231846in"
-height="2.085136701662292in"}
+![figure12](https://user-images.githubusercontent.com/61329825/192900422-b83ffd4a-1b26-40d7-a82b-8bc2b6bde06e.png)
 
 The weights seem to be weighted correctly because the theta value with
 the largest weight is theta7 which corresponds to the independent
@@ -309,14 +300,12 @@ tomorrow and an array of the data within that same row).
 The following figures are snippets of code that show important functions
 used for testing the model.
 
-![](media/image13.png){width="3.1456233595800525in"
-height="1.9238823272090988in"}
+![figure13](https://user-images.githubusercontent.com/61329825/192900461-9f9b15ed-9b8f-4ba9-8acf-139be3b4add7.png)
 
 *Figure 13*: TestingHadoop.java code that shows use of sigmoid function
 for classification
 
-![](media/image14.png){width="2.9852088801399823in"
-height="1.1964293525809273in"}
+![figure14](https://user-images.githubusercontent.com/61329825/192900503-27dcd211-15b7-4dd4-9379-739fbc20624a.png)
 
 *Figure 14*: Instance.java
 
@@ -338,8 +327,7 @@ program can determine the number of predictions that were:
 These metrics are important for testing the effectiveness of the model
 which will be shown in the next section.
 
-![](media/image15.png){width="3.0649343832021in"
-height="3.1446391076115487in"}
+![figure15](https://user-images.githubusercontent.com/61329825/192900561-d47c8aed-5f1d-4927-99dc-4ce55235c026.png)
 
 Figure 15: Code of classifying and predicting each test instance
 
@@ -349,11 +337,7 @@ To test the effectiveness of the model, I will use the confusion matrix
 formulas of recall, precision, and accuracy. For each metric mentioned
 in the previous section, their totals were:
 
-Correct = 40,014 Wrong = 7,822
-
-True Positive = 4,373 True Negative = 35,641
-
-False Positive = 6,066 False Negative = 1,756
+![totals](https://user-images.githubusercontent.com/61329825/192900602-33baa1e9-bb41-421a-baed-cd395bd97905.PNG)
 
 > Recall
 
