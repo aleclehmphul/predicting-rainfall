@@ -15,13 +15,6 @@ Project to predict if it will rain tomorrow in Australia given numerous weather 
 
 
 
-
-**Mentoring**
-
-Professor Min Chen, Department of Computer Science, SUNY-New Paltz
-
-<chenm@newpaltz.edu>
-
 **1. Introduction**
 
 > **1.1 Project Motivation**
@@ -424,6 +417,15 @@ the model.
 This was a very fun project to work on. I learned so much in so many new
 areas, such as R, Apache Hadoop, data cleaning, and machine learning
 (with logistic regression) just to mention a few.
+
+
+
+**Mentoring**
+
+Professor Min Chen, Department of Computer Science, SUNY-New Paltz
+
+<chenm@newpaltz.edu>
+
 
 **5. References**
 
