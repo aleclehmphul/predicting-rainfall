@@ -193,8 +193,8 @@ dataset
 Before I describe my approach and implementation of map-reduce within my
 model, I first need to describe logistic regression.
 
-> Logistic Regression
-Logistic regression\[5\] is a machine learning algorithm that is perfect
+*Logistic Regression*  
+Logistic regression is a machine learning algorithm that is perfect
 for classifying a binary outcome. This is due to the sigmoid function,
 which is the key behind the logistic regression algorithm. Essentially,
 the sigmoid function takes a linear model and maps it between the values
@@ -228,14 +228,14 @@ The inverse of logit is equal to the sigmoid function, as shown below.
 
 $${logit}^{- 1}(y) = \frac{e^{y}}{1 + e^{y}} = \frac{1}{1 + e^{- y}}$$
 
-> Map-Reduce Goal
+*Map-Reduce Goal*  
 The goal of map-reduce job is to train the model by using the training
 dataset to calculate the weights for the model. After the map-reduce job
 finishes, there will be a text file that contains the model's weights.
 This text file will be used, along with the testing dataset, to test the
 model and its performance.
 
-> Mapper Class
+*Mapper Class*  
 The mapper class parses through the training dataset file, which is
 determined in the configuration of the driver class. This is a super
 important step because the data needs to extracted properly so that the
@@ -266,7 +266,7 @@ reducer class to handle.
 ![figure10](https://user-images.githubusercontent.com/61329825/192900319-1895fd17-6696-4832-86a4-49a8af09ba59.png)  
 
 
-> Reducer Class
+*Reducer Class*  
 The goal of the reducer class is to output the proper weight value of
 each independent variable and write it to an output file. In my case,
 this was done simply through summing all of the mapper jobs' values and
@@ -277,7 +277,7 @@ file.
 ![figure11](https://user-images.githubusercontent.com/61329825/192900367-16ac2577-db3c-4c40-b7de-1052bb6ea1cd.png)  
 
 
-> Output of Map-Reduce Job
+*Output of Map-Reduce Job*  
 As mentioned before, the Map-Reduce job's goal was to train the model.
 The output file contains the trained weights for the model which can be
 used for testing in the future.
@@ -318,17 +318,17 @@ for classification
 By testing the model in the way shown in *Figure 15* below*,* the
 program can determine the number of predictions that were:
 
-1.  Correct
+1.  Correct  
 
-2.  Wrong
+2.  Wrong  
 
-3.  True Positive
+3.  True Positive  
 
-4.  True Negative
+4.  True Negative  
 
-5.  False Positive
+5.  False Positive  
 
-6.  False Negative
+6.  False Negative  
 
 These metrics are important for testing the effectiveness of the model
 which will be shown in the next section.
