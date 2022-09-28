@@ -77,7 +77,7 @@ My approach was to divide the project into three main steps/tasks that
 must be completed: (1) Data Pre-processing, (2) Map-Reduce, and (3)
 Testing Model.
 
-**[Data Pre-Processing:]{.underline}**
+**<u>Data Pre-Processing</u>**
 
 This step was the most time consuming and important step to get right.
 The goal of data pre-processing is to properly clean the dataset so it
