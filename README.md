@@ -52,8 +52,8 @@ model. More specifically, summing the number of correct and incorrect
 predictions as well as determining if it was false positive, true
 positive, false negative, or true negative. This information is vital
 for testing the effectiveness of the model. This is further elaborated
-on in the **Approach and Implementation (6)** and **Experiment Results
-and Discussion (7)** sections of the report.
+on in the **Approach and Implementation (3)** and **Experiment Results
+and Discussion (4)** sections of the report.
 
 **2. Background/History of the Study**
 
@@ -337,7 +337,7 @@ Figure 15: Code of classifying and predicting each test instance
 ![figure15](https://user-images.githubusercontent.com/61329825/192900561-d47c8aed-5f1d-4927-99dc-4ce55235c026.png)  
 
 
-**7. Experiment Results and Discussion**
+**4. Experiment Results and Discussion**
 
 To test the effectiveness of the model, I will use the confusion matrix
 formulas of recall, precision, and accuracy. For each metric mentioned
@@ -375,7 +375,7 @@ will rain tomorrow. Instead, my model was very good at predicting when
 it will not rain tomorrow. This is evident from the large number of true
 negatives and small number of false negatives.
 
-**4. Conclusion**
+**5. Conclusion**
 
 Possible Improvements
 
